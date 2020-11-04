@@ -61,31 +61,98 @@
     </ul>
 
         <div id="Home" class="col s12">
-            <marquee behavior="scroll" direction="left">Cookie News is now live * Trump ate chicken yesterday* Corona virus is over * CSK wins IPL 2020 * Rahul Gandhi becomes the Prime Minister of India *</marquee>
+            <marquee behavior="scroll" direction="left">
+
+                {% for i in main.world %}
+                {{i.title}} *
+                {% endfor %}
+                {% for i in main.india %}
+                {{i.title}} *
+                {% endfor %}
+                {% for i in main.tech %}
+                {{i.title}} *
+                {% endfor %}
+                {% for i in main.sports %}
+                {{i.title}} *
+                {% endfor %}
+                {% for i in main.buisness %}
+                {{i.title}} *
+                {% endfor %}
+                {% for i in main.entertainment %}
+                {{i.title}} *
+                {% endfor %}
+                {% for i in main.health %}
+                {{i.title}} *
+                {% endfor %}
+
+            </marquee>
+
             <section class="fslider">
                 <div class="slider  darken-1">
                     <ul class="slides black">
+                        {% for i in main.world %}
                         <li class="center black">
-                            <img src="https://img.etimg.com/thumb/msid-78291420,width-1200,height-900,imgsize-567168,overlay-economictimes/photo.jpg" alt="">
+                            <img src="{{i.urlToImage}}" alt="">
                             <div class="center-align caption white-text">
-                                <h3>Trump or Biden</h3>
-                                <h5 class="truncate">Who will win the presidential election??..</h5>
+                                <h3 class="truncate">{{i.title}}</h3>
+                                <h5 class="truncate">{{i.description}}</h5>
                             </div>
                         </li>
+                        {% endfor %}
+                        {% for i in main.india %}
                         <li class="center black">
-                            <img src="https://i2.wp.com/www.inventiva.co.in/wp-content/uploads/2020/08/iplll.jpg" alt="">
+                            <img src="{{i.urlToImage}}" alt="">
                             <div class="center-align caption white-text">
-                                <h3>IPL 2020 to its end!!..</h3>
-                                <h5 class="truncate">Who will win the ipl this year??..</h5>
+                                <h3 class="truncate">{{i.title}}</h3>
+                                <h5 class="truncate">{{i.description}}</h5>
                             </div>
                         </li>
+                        {% endfor %}
+                        {% for i in main.sports %}
                         <li class="center black">
-                            <img src="https://m.hindustantimes.com/rf/image_size_444x250/HT/p2/2020/10/21/Pictures/chinese-president-minister-jinping-session-narendra-indian_be076522-1349-11eb-8d9b-3f5d4a8a0fbd.jpg" alt="">
+                            <img src="{{i.urlToImage}}" alt="">
                             <div class="center-align caption white-text">
-                                <h3>India China Border Clash!!..</h3>
-                                <h5 class="truncate">What is happening in Ladakh and Arunachal. Live updates</h5>
+                                <h3 class="truncate">{{i.title}}</h3>
+                                <h5 class="truncate">{{i.description}}</h5>
                             </div>
                         </li>
+                        {% endfor %}
+                        {% for i in main.entertainment %}
+                        <li class="center black">
+                            <img src="{{i.urlToImage}}" alt="">
+                            <div class="center-align caption white-text">
+                                <h3 class="truncate">{{i.title}}</h3>
+                                <h5 class="truncate">{{i.description}}</h5>
+                            </div>
+                        </li>
+                        {% endfor %}
+                        {% for i in main.buisness %}
+                        <li class="center black">
+                            <img src="{{i.urlToImage}}" alt="">
+                            <div class="center-align caption white-text">
+                                <h3 class="truncate">{{i.title}}</h3>
+                                <h5 class="truncate">{{i.description}}</h5>
+                            </div>
+                        </li>
+                        {% endfor %}
+                        {% for i in main.health %}
+                        <li class="center black">
+                            <img src="{{i.urlToImage}}" alt="">
+                            <div class="center-align caption white-text">
+                                <h3 class="truncate">{{i.title}}</h3>
+                                <h5 class="truncate">{{i.description}}</h5>
+                            </div>
+                        </li>
+                        {% endfor %}
+                        {% for i in main.tech %}
+                        <li class="center black">
+                            <img src="{{i.urlToImage}}" alt="">
+                            <div class="center-align caption white-text">
+                                <h3 class="truncate">{{i.title}}</h3>
+                                <h5 class="truncate">{{i.description}}</h5>
+                            </div>
+                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </section>
@@ -101,9 +168,9 @@
                         {% for i in main.world %}
                         <div class="news__box row">
                             <div class="text left col l8 s8 m8">
-                                <h3 class="text__title">
+                                <h5 class="text__title">
                                     {{i.title}}
-                                </h3>
+                                </h5>
                                 <p class="text__desc grey-text">
                                     {{i.description}}
                                 </p>
@@ -119,15 +186,15 @@
 
                     <div class="col l6 m12 s12">
                         <div class="title">
-                            <h1>India News</h1>
+                            <h1 class="center">India News</h1>
                         </div>
 
                         {% for i in main.india %}
                         <div class="news__box row">
                             <div class="text left col l8 s8 m8">
-                                <h3 class="text__title">
+                                <h5 class="text__title">
                                     {{i.title}}
-                                </h3>
+                                </h5>
                                 <p class="text__desc grey-text">
                                     {{i.description}}
                                 </p>
@@ -143,14 +210,14 @@
                 <div class="row">
                     <div class="col l6 m12 s12 news-box">
                         <div class="title">
-                            <h1>Sports News</h1>
+                            <h1 class="center">Sports News</h1>
                         </div>
                         {% for i in main.sports %}
                         <div class="news__box row">
                             <div class="text left col l8 s8 m8">
-                                <h3 class="text__title">
+                                <h5 class="text__title">
                                     {{i.title}}
-                                </h3>
+                                </h5>
                                 <p class="text__desc grey-text">
                                     {{i.description}}
                                 </p>
@@ -167,15 +234,15 @@
 
                     <div class="col l6 m12 s12">
                         <div class="title">
-                            <h1>Entertainment News</h1>
+                            <h1 class="center">Entertainment News</h1>
                         </div>
 
                         {% for i in main.entertainment %}
                         <div class="news__box row">
                             <div class="text left col l8 s8 m8">
-                                <h3 class="text__title">
+                                <h5 class="text__title">
                                     {{i.title}}
-                                </h3>
+                                </h5>
                                 <p class="text__desc grey-text">
                                     {{i.description}}
                                 </p>
@@ -192,14 +259,14 @@
                 <div class="row">
                     <div class="col l6 m12 s12 news-box">
                         <div class="title">
-                            <h1>Business News</h1>
+                            <h1 class="center">Business News</h1>
                         </div>
                         {% for i in main.buisness %}
                         <div class="news__box row">
                             <div class="text left col l8 s8 m8">
-                                <h3 class="text__title">
+                                <h5 class="text__title">
                                     {{i.title}}
-                                </h3>
+                                </h5>
                                 <p class="text__desc grey-text">
                                     {{i.description}}
                                 </p>
@@ -216,15 +283,15 @@
 
                     <div class="col l6 m12 s12">
                         <div class="title">
-                            <h1>Tech News</h1>
+                            <h1 class="center">Tech News</h1>
                         </div>
 
                         {% for i in main.tech %}
                         <div class="news__box row">
                             <div class="text left col l8 s8 m8">
-                                <h3 class="text__title">
+                                <h5 class="text__title">
                                     {{i.title}}
-                                </h3>
+                                </h5>
                                 <p class="text__desc grey-text">
                                     {{i.description}}
                                 </p>
@@ -246,27 +313,15 @@
             <section class="fslider">
                 <div class="slider  darken-1">
                     <ul class="slides black">
+                        {% for i in main.india %}
                         <li class="center black">
-                            <img src="https://img.etimg.com/thumb/msid-78291420,width-1200,height-900,imgsize-567168,overlay-economictimes/photo.jpg" alt="">
+                            <img src="{{i.urlToImage}}" alt="">
                             <div class="center-align caption white-text">
-                                <h3>Trump or Biden</h3>
-                                <h5 class="truncate">Who will win the presidential election??..</h5>
+                                <h3 class="truncate">{{i.title}}</h3>
+                                <h5 class="truncate">{{i.description}}</h5>
                             </div>
                         </li>
-                        <li class="center black">
-                            <img src="https://i2.wp.com/www.inventiva.co.in/wp-content/uploads/2020/08/iplll.jpg" alt="">
-                            <div class="center-align caption white-text">
-                                <h3>IPL 2020 to its end!!..</h3>
-                                <h5 class="truncate">Who will win the ipl this year??..</h5>
-                            </div>
-                        </li>
-                        <li class="center black">
-                            <img src="https://m.hindustantimes.com/rf/image_size_444x250/HT/p2/2020/10/21/Pictures/chinese-president-minister-jinping-session-narendra-indian_be076522-1349-11eb-8d9b-3f5d4a8a0fbd.jpg" alt="">
-                            <div class="center-align caption white-text">
-                                <h3>India China Border Clash!!..</h3>
-                                <h5 class="truncate">What is happening in Ladakh and Arunachal. Live updates</h5>
-                            </div>
-                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </section>
@@ -293,27 +348,15 @@
             <section class="fslider">
                 <div class="slider  darken-1">
                     <ul class="slides black">
+                        {% for i in main.world %}
                         <li class="center black">
-                            <img src="https://img.etimg.com/thumb/msid-78291420,width-1200,height-900,imgsize-567168,overlay-economictimes/photo.jpg" alt="">
+                            <img src="{{i.urlToImage}}" alt="">
                             <div class="center-align caption white-text">
-                                <h3>Trump or Biden</h3>
-                                <h5 class="truncate">Who will win the presidential election??..</h5>
+                                <h3 class="truncate">{{i.title}}</h3>
+                                <h5 class="truncate">{{i.description}}</h5>
                             </div>
                         </li>
-                        <li class="center black">
-                            <img src="https://i2.wp.com/www.inventiva.co.in/wp-content/uploads/2020/08/iplll.jpg" alt="">
-                            <div class="center-align caption white-text">
-                                <h3>IPL 2020 to its end!!..</h3>
-                                <h5 class="truncate">Who will win the ipl this year??..</h5>
-                            </div>
-                        </li>
-                        <li class="center black">
-                            <img src="https://m.hindustantimes.com/rf/image_size_444x250/HT/p2/2020/10/21/Pictures/chinese-president-minister-jinping-session-narendra-indian_be076522-1349-11eb-8d9b-3f5d4a8a0fbd.jpg" alt="">
-                            <div class="center-align caption white-text">
-                                <h3>India China Border Clash!!..</h3>
-                                <h5 class="truncate">What is happening in Ladakh and Arunachal. Live updates</h5>
-                            </div>
-                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </section>
@@ -339,27 +382,15 @@
             <section class="fslider">
                 <div class="slider  darken-1">
                     <ul class="slides black">
+                        {% for i in main.sports %}
                         <li class="center black">
-                            <img src="https://img.etimg.com/thumb/msid-78291420,width-1200,height-900,imgsize-567168,overlay-economictimes/photo.jpg" alt="">
+                            <img src="{{i.urlToImage}}" alt="">
                             <div class="center-align caption white-text">
-                                <h3>Trump or Biden</h3>
-                                <h5 class="truncate">Who will win the presidential election??..</h5>
+                                <h3 class="truncate">{{i.title}}</h3>
+                                <h5 class="truncate">{{i.description}}</h5>
                             </div>
                         </li>
-                        <li class="center black">
-                            <img src="https://i2.wp.com/www.inventiva.co.in/wp-content/uploads/2020/08/iplll.jpg" alt="">
-                            <div class="center-align caption white-text">
-                                <h3>IPL 2020 to its end!!..</h3>
-                                <h5 class="truncate">Who will win the ipl this year??..</h5>
-                            </div>
-                        </li>
-                        <li class="center black">
-                            <img src="https://m.hindustantimes.com/rf/image_size_444x250/HT/p2/2020/10/21/Pictures/chinese-president-minister-jinping-session-narendra-indian_be076522-1349-11eb-8d9b-3f5d4a8a0fbd.jpg" alt="">
-                            <div class="center-align caption white-text">
-                                <h3>India China Border Clash!!..</h3>
-                                <h5 class="truncate">What is happening in Ladakh and Arunachal. Live updates</h5>
-                            </div>
-                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </section>
@@ -385,27 +416,15 @@
             <section class="fslider">
                 <div class="slider  darken-1">
                     <ul class="slides black">
+                        {% for i in main.entertainment %}
                         <li class="center black">
-                            <img src="https://img.etimg.com/thumb/msid-78291420,width-1200,height-900,imgsize-567168,overlay-economictimes/photo.jpg" alt="">
+                            <img src="{{i.urlToImage}}" alt="">
                             <div class="center-align caption white-text">
-                                <h3>Trump or Biden</h3>
-                                <h5 class="truncate">Who will win the presidential election??..</h5>
+                                <h3 class="truncate">{{i.title}}</h3>
+                                <h5 class="truncate">{{i.description}}</h5>
                             </div>
                         </li>
-                        <li class="center black">
-                            <img src="https://i2.wp.com/www.inventiva.co.in/wp-content/uploads/2020/08/iplll.jpg" alt="">
-                            <div class="center-align caption white-text">
-                                <h3>IPL 2020 to its end!!..</h3>
-                                <h5 class="truncate">Who will win the ipl this year??..</h5>
-                            </div>
-                        </li>
-                        <li class="center black">
-                            <img src="https://m.hindustantimes.com/rf/image_size_444x250/HT/p2/2020/10/21/Pictures/chinese-president-minister-jinping-session-narendra-indian_be076522-1349-11eb-8d9b-3f5d4a8a0fbd.jpg" alt="">
-                            <div class="center-align caption white-text">
-                                <h3>India China Border Clash!!..</h3>
-                                <h5 class="truncate">What is happening in Ladakh and Arunachal. Live updates</h5>
-                            </div>
-                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </section>
@@ -431,27 +450,15 @@
             <section class="fslider">
                 <div class="slider  darken-1">
                     <ul class="slides black">
+                        {% for i in main.buisness %}
                         <li class="center black">
-                            <img src="https://img.etimg.com/thumb/msid-78291420,width-1200,height-900,imgsize-567168,overlay-economictimes/photo.jpg" alt="">
+                            <img src="{{i.urlToImage}}" alt="">
                             <div class="center-align caption white-text">
-                                <h3>Trump or Biden</h3>
-                                <h5 class="truncate">Who will win the presidential election??..</h5>
+                                <h3 class="truncate">{{i.title}}</h3>
+                                <h5 class="truncate">{{i.description}}</h5>
                             </div>
                         </li>
-                        <li class="center black">
-                            <img src="https://i2.wp.com/www.inventiva.co.in/wp-content/uploads/2020/08/iplll.jpg" alt="">
-                            <div class="center-align caption white-text">
-                                <h3>IPL 2020 to its end!!..</h3>
-                                <h5 class="truncate">Who will win the ipl this year??..</h5>
-                            </div>
-                        </li>
-                        <li class="center black">
-                            <img src="https://m.hindustantimes.com/rf/image_size_444x250/HT/p2/2020/10/21/Pictures/chinese-president-minister-jinping-session-narendra-indian_be076522-1349-11eb-8d9b-3f5d4a8a0fbd.jpg" alt="">
-                            <div class="center-align caption white-text">
-                                <h3>India China Border Clash!!..</h3>
-                                <h5 class="truncate">What is happening in Ladakh and Arunachal. Live updates</h5>
-                            </div>
-                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </section>
@@ -477,27 +484,15 @@
             <section class="fslider">
                 <div class="slider  darken-1">
                     <ul class="slides black">
+                        {% for i in main.tech %}
                         <li class="center black">
-                            <img src="https://img.etimg.com/thumb/msid-78291420,width-1200,height-900,imgsize-567168,overlay-economictimes/photo.jpg" alt="">
+                            <img src="{{i.urlToImage}}" alt="">
                             <div class="center-align caption white-text">
-                                <h3>Trump or Biden</h3>
-                                <h5 class="truncate">Who will win the presidential election??..</h5>
+                                <h3 class="truncate">{{i.title}}</h3>
+                                <h5 class="truncate">{{i.description}}</h5>
                             </div>
                         </li>
-                        <li class="center black">
-                            <img src="https://i2.wp.com/www.inventiva.co.in/wp-content/uploads/2020/08/iplll.jpg" alt="">
-                            <div class="center-align caption white-text">
-                                <h3>IPL 2020 to its end!!..</h3>
-                                <h5 class="truncate">Who will win the ipl this year??..</h5>
-                            </div>
-                        </li>
-                        <li class="center black">
-                            <img src="https://m.hindustantimes.com/rf/image_size_444x250/HT/p2/2020/10/21/Pictures/chinese-president-minister-jinping-session-narendra-indian_be076522-1349-11eb-8d9b-3f5d4a8a0fbd.jpg" alt="">
-                            <div class="center-align caption white-text">
-                                <h3>India China Border Clash!!..</h3>
-                                <h5 class="truncate">What is happening in Ladakh and Arunachal. Live updates</h5>
-                            </div>
-                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </section>
@@ -523,27 +518,15 @@
             <section class="fslider">
                 <div class="slider  darken-1">
                     <ul class="slides black">
+                        {% for i in main.health %}
                         <li class="center black">
-                            <img src="https://img.etimg.com/thumb/msid-78291420,width-1200,height-900,imgsize-567168,overlay-economictimes/photo.jpg" alt="">
+                            <img src="{{i.urlToImage}}" alt="">
                             <div class="center-align caption white-text">
-                                <h3>Trump or Biden</h3>
-                                <h5 class="truncate">Who will win the presidential election??..</h5>
+                                <h3 class="truncate">{{i.title}}</h3>
+                                <h5 class="truncate">{{i.description}}</h5>
                             </div>
                         </li>
-                        <li class="center black">
-                            <img src="https://i2.wp.com/www.inventiva.co.in/wp-content/uploads/2020/08/iplll.jpg" alt="">
-                            <div class="center-align caption white-text">
-                                <h3>IPL 2020 to its end!!..</h3>
-                                <h5 class="truncate">Who will win the ipl this year??..</h5>
-                            </div>
-                        </li>
-                        <li class="center black">
-                            <img src="https://m.hindustantimes.com/rf/image_size_444x250/HT/p2/2020/10/21/Pictures/chinese-president-minister-jinping-session-narendra-indian_be076522-1349-11eb-8d9b-3f5d4a8a0fbd.jpg" alt="">
-                            <div class="center-align caption white-text">
-                                <h3>India China Border Clash!!..</h3>
-                                <h5 class="truncate">What is happening in Ladakh and Arunachal. Live updates</h5>
-                            </div>
-                        </li>
+                        {% endfor %}
                     </ul>
                 </div>
             </section>
